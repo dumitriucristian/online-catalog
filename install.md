@@ -1,4 +1,6 @@
 # Install tailwind
  * use info from https://blog.logrocket.com/create-react-app-and-tailwindcss \
 
- * in windows is required to rename tailwind.js into tailwind-config.js 
+ * in windows is required to rename tailwind.js into tailwind-config.js \
+
+ https://freebw.com/templates/smartedu/index2.html

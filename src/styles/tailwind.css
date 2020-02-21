@@ -591,6 +591,20 @@ video {
   height: auto;
 }
 
+h1 {
+  font-size: 1.5rem;
+  color: red;
+}
+
+h2 {
+  font-size: 1.25rem;
+  color: red;
+}
+
+h3 {
+  font-size: 1.125rem;
+}
+
 .container {
   width: 100%;
 }
@@ -63825,4 +63839,4 @@ video {
     -webkit-transition-duration: 1000ms;
             transition-duration: 1000ms;
   }
-}
+}  

@@ -1,5 +1,19 @@
 @tailwind base;
 
+h1 {
+    @apply text-2xl;
+    color: red;   
+}
+
+h2 {
+    @apply text-xl;
+    color: red;
+}
+
+h3 {
+    @apply text-lg;
+}
+
 @tailwind components;
 
-@tailwind utilities;
+@tailwind utilities;  
