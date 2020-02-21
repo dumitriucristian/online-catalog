@@ -13,14 +13,16 @@ function App() {
             <a className="w-full sm:w-1/3 text-center sm:text-right p-2" href="#">Link three</a>
           </div>     
       </header>
-      <div className="card max-w-sm">
-        <img className="w-full" src="https://picsum.photos/500"></img>
+      <div className="card w-64 rounded-lg overflow-hidden">
+          <img className="h-40 w-full object-cover" src="https://picsum.photos/500"></img>
         <div >
-            <tittle>Some title</tittle>
-            <p>Lorem ipsume asdfasdf asdlkfjalsd flaksjdf lasdfk jl</p>
+            <h3 className="text-center font-medium uppercase p-1 bg-gray-300">Some title</h3>
+            <p className="p-2">Lorem ipsume asdfasdf asdlkfjalsd flaksjdf lasdfk jl</p>
         </div>
-        <div >
-            <span className="bg-gray-200"></span>
+        <div className="flex">
+            <span className="tag text-gray-400">Tag</span>
+            <span className="tag">Tag</span>
+            <span className="tag">Tag</span> 
         </div>
       </div>
     </div>

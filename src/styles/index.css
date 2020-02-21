@@ -16,4 +16,9 @@ h3 {
 
 @tailwind components;
 
+ .tag {
+     @apply bg-red-500 text-sm text-center w-24 font-medium  rounded-lg m-1 ;
+ }
+
+
 @tailwind utilities;  

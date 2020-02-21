@@ -633,6 +633,16 @@ h3 {
   }
 }
 
+.tag {
+  background-color: #f56565;
+  font-size: 0.875rem;
+  text-align: center;
+  width: 6rem;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  margin: 0.25rem;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
