@@ -15,12 +15,12 @@ function App() {
       </header>
       <div className="card w-64 rounded-lg overflow-hidden">
           <img className="h-40 w-full object-cover" src="https://picsum.photos/500"></img>
-        <div >
-            <h3 className="text-center font-medium uppercase p-1 bg-gray-300">Some title</h3>
-            <p className="p-2">Lorem ipsume asdfasdf asdlkfjalsd flaksjdf lasdfk jl</p>
+        <div className="h-40">
+            <h3 className="text-center text-base text-blue-700 font-medium uppercase p-1 bg-gray-300">Some title</h3>
+            <p className="px-2 py-3 text-sm">Lorem ipsume asdfasdf asdlkfjalsd flaksjdf lasdfk jl</p>
         </div>
         <div className="flex">
-            <span className="tag text-gray-400">Tag</span>
+            <span className="tag">Tag</span>
             <span className="tag">Tag</span>
             <span className="tag">Tag</span> 
         </div>
