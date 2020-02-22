@@ -1,10 +1,14 @@
 import React from 'react';
+import Card from './components/Card.js';
 import logo from './logo.svg';
 
 
 function App() {
+
   return (
-    <div className="App" >
+
+    <div className="App">
+     
        <header className="grid grid-cols-1 sm:grid-cols-2">    
           <div className="bg-red-300">Logo</div>
           <div className="flex flex-wrap mr-5">
@@ -13,18 +17,15 @@ function App() {
             <a className="w-full sm:w-1/3 text-center sm:text-right p-2" href="#">Link three</a>
           </div>     
       </header>
-      <div className="card w-64 rounded-lg overflow-hidden">
-          <img className="h-40 w-full object-cover" src="https://picsum.photos/500"></img>
-        <div className="h-40">
-            <h3 className="text-center text-base text-blue-700 font-medium uppercase p-1 bg-gray-300">Some title</h3>
-            <p className="px-2 py-3 text-sm">Lorem ipsume asdfasdf asdlkfjalsd flaksjdf lasdfk jl</p>
-        </div>
-        <div className="flex">
-            <span className="tag">Tag</span>
-            <span className="tag">Tag</span>
-            <span className="tag">Tag</span> 
-        </div>
+      <div className="flex w-full flex-wrap justify-center my-10">
+        <Card/>
+        <Card/>
+        <Card/>
+        <Card/>
+        <Card/>
       </div>
+     
+      
     </div>
   );
 }
