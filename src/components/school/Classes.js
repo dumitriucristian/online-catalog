@@ -29,6 +29,22 @@ const data =[
     
     ];
 
+    /*
+    render one elem
+    {data.map(s =>(<li>{s}<li>) )}
+   
+    render multiple elem
+      {data.map( (some,i) => 
+            return(
+                <div key={i}>
+                   <li>{some.name}</li>
+                </div>
+            )
+          ) 
+       }
+    
+    */
+
 class Classes extends React.Component {
 
    
