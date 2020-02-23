@@ -9,14 +9,14 @@ class Card extends React.Component {
                 <img className="h-40 w-full object-cover" src="https://picsum.photos/500"></img>
                 <div className="h-40">
                     <h3 className="text-center text-base text-blue-700 font-medium uppercase p-1 bg-gray-300">Some title</h3>
-                    <p className="px-2 py-3 text-sm">Lorem ipsume asdfasdf asdlkfjalsd flaksjdf lasdfk jl</p>
+                    <p className="px-2 py-3 text-sm">Some text</p>
                 </div>
-                <div className="flex">
+                <div className="flex mb-2">
                     <span className="tag">Tag</span>
                     <span className="tag">Tag</span>
                     <span className="tag">Tag</span> 
                 </div>
-            </div>
+            </div>   
         );
     }
 
