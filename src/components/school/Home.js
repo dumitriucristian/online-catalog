@@ -1,12 +1,12 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+
 
 class Home extends React.Component {
 
     render() {
         return(
             <div>
-                <h1>This is homepage</h1>
+                <h1 className="text-red-400">This is homepage</h1>
             </div>    
         );
     }

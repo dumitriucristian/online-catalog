@@ -1,13 +1,12 @@
 @tailwind base;
 
 h1 {
-    @apply text-2xl;
-    color: red;   
+    @apply text-blue-400;
+    
 }
 
 h2 {
-    @apply text-xl;
-    color: red;
+    @apply text-red-400;
 }
 
 h3 {
@@ -17,7 +16,8 @@ h3 {
 @tailwind components;
 
  .tag {
-     @apply bg-red-500 text-sm text-center w-24 font-medium  rounded-lg p-2;
+     @apply
+      bg-red-500 text-sm text-center w-12 m-1  rounded-lg p-1;
  }
 
 

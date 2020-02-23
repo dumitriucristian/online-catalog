@@ -592,13 +592,11 @@ video {
 }
 
 h1 {
-  font-size: 1.5rem;
-  color: red;
+  color: #63b3ed;
 }
 
 h2 {
-  font-size: 1.25rem;
-  color: red;
+  color: #fc8181;
 }
 
 h3 {
@@ -637,10 +635,10 @@ h3 {
   background-color: #f56565;
   font-size: 0.875rem;
   text-align: center;
-  width: 6rem;
-  font-weight: 500;
+  width: 3rem;
+  margin: 0.25rem;
   border-radius: 0.5rem;
-  padding: 0.5rem;
+  padding: 0.25rem;
 }
 
 .sr-only {
