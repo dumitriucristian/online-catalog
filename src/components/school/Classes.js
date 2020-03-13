@@ -3,7 +3,7 @@ import React from 'react';
 const data =[
     {  
       "name":"8A",
-      "teacher":"Cristi cel voinic sss sss",
+      "teacher":"send data to submoduels",
       "nrOfStudents":5
     },
     {  
