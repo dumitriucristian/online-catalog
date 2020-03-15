@@ -13,7 +13,7 @@ class Home extends React.Component {
       }
 
      componentDidMount() {
-            fetch('https://jsonplaceholder.typicode.com/posts')
+            fetch('http://localhost:8080/')
             .then( (results) => {
                 return results.json();
             }).then( 
