@@ -15,9 +15,11 @@ class Home extends React.Component {
      componentDidMount() {
             fetch('http://localhost:8080/')
             .then( (results) => {
+
                 return results.json();
             }).then( 
-                (data) =>{
+        (data) =>{
+
                 this.setState({
                     isLoaded: true,
                     users: data
@@ -45,7 +47,7 @@ class Home extends React.Component {
            <div>
                {users.map(user => ( 
 
-                   <p key={user.id}>{user.title}</p>
+                   <p key={user.id}>{user.Title}</p>
                ))}
                 
            </div>
