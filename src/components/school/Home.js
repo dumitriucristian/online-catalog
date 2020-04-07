@@ -15,11 +15,9 @@ class Home extends React.Component {
      componentDidMount() {
             fetch('http://localhost:8080/')
             .then( (results) => {
-
                 return results.json();
             }).then( 
         (data) =>{
-
                 this.setState({
                     isLoaded: true,
                     users: data

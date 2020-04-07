@@ -5,6 +5,7 @@ import Classes from './components/school/Classes.js';
 import Students from './components/school/Students.js';
 import Home from './components/school/Home.js';
 import Cards from './components/Cards.js';
+import Login from "./components/Login";
 
 function App() {
 
@@ -21,12 +22,15 @@ function App() {
                 <NavLink to="/personel" className="w-full sm:w-1/4 text-center sm:text-right p-2" href="#">School Personel</NavLink>
               </div>               
           </header>
+
+
           <div className="flex w-full flex-wrap justify-center my-10">
+
             <Route exact path="/" component={Home} />
             <Route path="/classes" component={Classes} /> 
             <Route path="/students" component={Students} />
+            <Route path="/login" component={Login} />
           </div>
-         
         </BrowserRouter>
     </div>
   );
