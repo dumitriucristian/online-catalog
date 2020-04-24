@@ -9,6 +9,8 @@ class LoginForm extends React.Component {
             username: '',
             password: '',
             error: '',
+            token:'',
+            refresh_token:''
         };
 
         this.handlePassChange = this.handlePassChange.bind(this);
@@ -26,7 +28,7 @@ class LoginForm extends React.Component {
         if (!this.state.password) {
             return this.setState({ error: 'Password is required' });
         }
-        const data = {'username':'test@test.com', 'password':'test'};
+        const data = {'username': this.state.username, 'password':this.state.password};
         fetch('http://localhost:8080/api/login_check', {
             method: 'POST',
             mode: 'cors',
@@ -37,9 +39,20 @@ class LoginForm extends React.Component {
             }),
             body: JSON.stringify(data)
         }).then( (rsp) => {
-                console.log(rsp);
-                return rsp.json();
-            })
+
+            if (!rsp.ok) {
+                throw Error(rsp.statusText);
+            }
+
+            return rsp.json();
+        }).then(rsp => {
+            this.state.token = rsp.token;
+            this.state.refresh_token = rsp.refresh_token;
+        }).catch(error => {
+            alert('Wrong username or password');
+            console.log(error)
+        });
+
         return this.setState({ error: '' });
     }
 
