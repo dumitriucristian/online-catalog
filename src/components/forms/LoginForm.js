@@ -1,34 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 
-class LoginForm extends React.Component {
-    constructor(){
+function LoginForm() {
 
-        super();
-        this.state = {
-            username: '',
-            password: '',
-            error: '',
-            token:'',
-            refresh_token:''
-        };
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
+    const [token, setToken] = useState('');
+    const [refreshToken, setRefreshToken] = useState('');
 
-        this.handlePassChange = this.handlePassChange.bind(this);
-        this.handleUserChange = this.handleUserChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-    }
-
-    handleSubmit(evt) {
+    const handleSubmit = (evt) => {
         evt.preventDefault();
 
-        if (!this.state.username) {
-            return this.setState({ error: 'Username is required' });
+        if (!username) {
+            return this.setUsername({error: 'Username is required'});
         }
 
-        if (!this.state.password) {
-            return this.setState({ error: 'Password is required' });
+        if (!password) {
+            return this.setPassword({ error: 'Password is required' });
         }
-        const data = {'username': this.state.username, 'password':this.state.password};
+
+        const data = {'username': username, 'password': password};
         fetch('http://localhost:8080/api/login_check', {
             method: 'POST',
             mode: 'cors',
@@ -43,74 +35,64 @@ class LoginForm extends React.Component {
             if (!rsp.ok) {
                 throw Error(rsp.statusText);
             }
-
             return rsp.json();
         }).then(rsp => {
-            this.state.token = rsp.token;
-            this.state.refresh_token = rsp.refresh_token;
+            setToken(rsp.token);
+            setRefreshToken(rsp.refresh_token);
         }).catch(error => {
             alert('Wrong username or password');
             console.log(error)
         });
 
-        return this.setState({ error: '' });
-    }
-
-
-    handleUserChange(evt) {
-        this.setState({
-            username: evt.target.value,
-        });
     };
 
-    handlePassChange(evt) {
-        this.setState({
-            password: evt.target.value,
-        });
-    }
+    const handleUserChange = evt => {
+        setUsername( evt.target.value);
+    };
 
+    const handlePassChange = evt => {
+        setPassword( evt.target.value);
+    };
 
-    render() {
-        return (
-            <div className="w-full max-w-xs">
-                <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={this.handleSubmit}>
-                    <div className="mb-4">
-                        <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="username">
-                            Username
-                        </label>
-                        <input
-                            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            id="username" type="text" placeholder="Username"
-                            value={this.state.username} onChange={this.handleUserChange}
-                        />
-                    </div>
-                    <div className="mb-6">
-                        <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
-                            Password
-                        </label>
-                        <input
-                            className="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-                            id="password" type="password" placeholder="******************"
-                            value={this.state.password} onChange={this.handlePassChange}
-                        />
-                            <p className="text-red-500 text-xs italic">Please choose a password.</p>
-                    </div>
-                    <div className="flex items-center justify-center">
-                        <input
-                            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                            type="submit" value="submit"
-                        />
-                    </div>
-                    <div className="flex items-end justify-center p-5">
-                        <a className="inline-block   text-sm text-blue-500 hover:text-blue-800"
-                           href="#">
-                            Forgot Password?
-                        </a>
-                    </div>
-                </form>
-            </div>
-        )
-    }
+    return (
+        <div className="w-full max-w-xs">
+            <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={handleSubmit}>
+                <div className="mb-4">
+                    <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="username">
+                        Username
+                    </label>
+                    <input
+                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        id="username" type="text" placeholder="Username"
+                        value={username} onChange={handleUserChange}
+                    />
+                </div>
+                <div className="mb-6">
+                    <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
+                        Password
+                    </label>
+                    <input
+                        className="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                        id="password" type="password" placeholder="******************"
+                        value={password} onChange={handlePassChange}
+                    />
+                        <p className="text-red-500 text-xs italic">Please choose a password.</p>
+                </div>
+                <div className="flex items-center justify-center">
+                    <input
+                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                        type="submit" value="submit"
+                    />
+                </div>
+                <div className="flex items-end justify-center p-5">
+                    <a className="inline-block   text-sm text-blue-500 hover:text-blue-800"
+                       href="#">
+                        Forgot Password?
+                    </a>
+                </div>
+            </form>
+        </div>
+    )
 }
 
 export default LoginForm;
