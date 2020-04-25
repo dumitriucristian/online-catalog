@@ -4,13 +4,9 @@ import { store } from "../../store";
 
 function Home(){
 
-    const [error, setError] = [];
-    const [isLoaded, setIsLoaded] = useState(false);
-    const [users, setUsers] = [];
     const globalState =  useContext(store);
     const login = globalState.state.login;
-    const { dispatch } = globalState;
-
+    console.log(globalState);
     const message = (login) ? "Welcome user" : "You are not loged in";
 
   /*
