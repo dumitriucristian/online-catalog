@@ -16,10 +16,11 @@ function App() {
             <div className="flex align-middle"><img src={logo} className="h-12 p-1"></img>Bucharest Hi School
             </div>
               <div className="flex flex-wrap mr-5">
-                <NavLink to="/classes"   className="w-full sm:w-1/4 text-center sm:text-right p-2" href="#" >School Classes </NavLink>
-                <NavLink to="/students" className="w-full sm:w-1/4 text-center sm:text-right p-2" href="#">School Students</NavLink>
-                <NavLink to="/statistics" className="w-full sm:w-1/4 text-center sm:text-right p-2" href="#">School statistics</NavLink>
-                <NavLink to="/personel" className="w-full sm:w-1/4 text-center sm:text-right p-2" href="#">School Personel</NavLink>
+                  <NavLink to="/"   className="w-full sm:w-1/4 text-center sm:text-right p-2" href="#" >Home</NavLink>
+                <NavLink to="/classes"   className="w-full sm:w-1/4 text-center sm:text-right p-2" href="#" >Classes </NavLink>
+                <NavLink to="/students" className="w-full sm:w-1/4 text-center sm:text-right p-2" href="#">Students</NavLink>
+                <NavLink to="/statistics" className="w-full sm:w-1/4 text-center sm:text-right p-2" href="#">Statistics</NavLink>
+                <NavLink to="/login" className="w-full sm:w-1/4 text-center sm:text-right p-2" href="#">Login</NavLink>
               </div>               
           </header>
 

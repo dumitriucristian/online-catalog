@@ -1,24 +1,34 @@
-import React, { useState } from 'react';
-
+import React, { useState, useContext } from 'react';
+import { store} from "../../store";
 
 function LoginForm() {
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
-    const [token, setToken] = useState('');
-    const [refreshToken, setRefreshToken] = useState('');
+
+   //get
+    const globalState = useContext(store);
+    const { dispatch } = globalState;
+
+
 
     const handleSubmit = (evt) => {
         evt.preventDefault();
 
         if (!username) {
-            return this.setUsername({error: 'Username is required'});
+            return setUsername({error: 'Username is required'});
         }
 
         if (!password) {
-            return this.setPassword({ error: 'Password is required' });
+            return setPassword({ error: 'Password is required' });
         }
+
+        //prevent user login multiple times
+        if(globalState.state.login === true) {
+           return
+        }
+
 
         const data = {'username': username, 'password': password};
         fetch('http://localhost:8080/api/login_check', {
@@ -37,8 +47,8 @@ function LoginForm() {
             }
             return rsp.json();
         }).then(rsp => {
-            setToken(rsp.token);
-            setRefreshToken(rsp.refresh_token);
+            console.log(rsp);
+            dispatch({type: 'login user', token: rsp.token, refreshToken: rsp.refresh_token});
         }).catch(error => {
             alert('Wrong username or password');
             console.log(error)
