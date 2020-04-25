@@ -19,7 +19,7 @@ const StateProvider = ( { children } ) => {
                 state.token = action.token;
                 state.refreshToken = action.refreshToken;
 
-                return state;
+                return {...state};
 
             default:
                 throw new Error();

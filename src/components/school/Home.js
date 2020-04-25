@@ -6,7 +6,6 @@ function Home(){
 
     const globalState =  useContext(store);
     const login = globalState.state.login;
-    console.log(globalState);
     const message = (login) ? "Welcome user" : "You are not loged in";
 
   /*
