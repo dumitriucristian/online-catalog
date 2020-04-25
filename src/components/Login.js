@@ -1,10 +1,10 @@
-import React from 'react';
+import React  from 'react';
 import LoginForm from './forms/LoginForm.js';
 
-class Login extends React.Component {
-    render() {
+function Login() {
+
        return( <LoginForm></LoginForm>);
-    }
+
 }
 
 export default Login;

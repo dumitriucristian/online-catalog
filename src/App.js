@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import logo from './svg/book.svg';
 import { BrowserRouter, Route, NavLink } from "react-router-dom";
 import Classes from './components/school/Classes.js';
@@ -8,6 +8,9 @@ import Cards from './components/Cards.js';
 import Login from "./components/Login";
 
 function App() {
+
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
 
   return (
     <div className="App">
