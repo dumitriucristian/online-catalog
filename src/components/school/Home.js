@@ -11,7 +11,8 @@ function Home(){
     const login = globalState.state.login;
     const { dispatch } = globalState;
 
-    console.log(globalState);
+    const message = (login) ? "Welcome user" : "You are not loged in";
+
   /*
 
      useEffect(()=> {
@@ -44,7 +45,7 @@ function Home(){
       */
      return (
              <div>
-                 <p>test</p>
+                 <p>{message}</p>
              </div>
          )
 }

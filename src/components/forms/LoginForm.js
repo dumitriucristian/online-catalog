@@ -1,12 +1,13 @@
 import React, { useState, useContext } from 'react';
 import { store} from "../../store";
+import { useHistory } from "react-router-dom";
 
 function LoginForm() {
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
-
+    const history = useHistory();
    //get
     const globalState = useContext(store);
     const { dispatch } = globalState;
@@ -49,6 +50,8 @@ function LoginForm() {
         }).then(rsp => {
             console.log(rsp);
             dispatch({type: 'login user', token: rsp.token, refreshToken: rsp.refresh_token});
+            history.push("/");
+
         }).catch(error => {
             alert('Wrong username or password');
             console.log(error)
@@ -64,7 +67,21 @@ function LoginForm() {
         setPassword( evt.target.value);
     };
 
+    //conditional rendering - if loged in hide form
+    if(globalState.state.login){
+        return (
+
+            <div className="w-full max-w-xs">
+
+                <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+                    <p className="block text-center text-gray-700 text-lg font-bold mb-2"> You are already loged in</p>
+                </div>
+            </div>
+        )
+    };
+
     return (
+
         <div className="w-full max-w-xs">
             <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={handleSubmit}>
                 <div className="mb-4">
