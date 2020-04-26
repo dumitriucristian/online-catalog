@@ -1,7 +1,7 @@
 import React, {createContext, useReducer} from 'react';
 
 const initialState = {
-    login:false,
+    isAuth:false,
     token:'',
     refreshToken:'',
     user:{}
@@ -15,7 +15,7 @@ const StateProvider = ( { children } ) => {
 
         switch(action.type) {
             case 'login user':
-                state.login = true;
+                state.isAuth = true;
                 state.token = action.token;
                 state.refreshToken = action.refreshToken;
 

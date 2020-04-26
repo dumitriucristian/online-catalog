@@ -6,6 +6,7 @@ import Students from './components/school/Students.js';
 import Home from './components/school/Home.js';
 import Cards from './components/Cards.js';
 import Login from "./components/Login";
+import Register from "./components/Register";
 import MainMenu from "./components/MainMenu.js";
 
 
@@ -26,6 +27,7 @@ function App() {
             <Route path="/classes" component={Classes} /> 
             <Route path="/students" component={Students} />
             <Route path="/login" component={Login} />
+              <Route path="/register" component={Register} />
           </div>
         </BrowserRouter>
     </div>

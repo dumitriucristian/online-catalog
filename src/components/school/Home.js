@@ -5,8 +5,8 @@ import { store } from "../../store";
 function Home(){
 
     const globalState =  useContext(store);
-    const login = globalState.state.login;
-    const message = (login) ? "Welcome user" : "You are not loged in";
+    const isAuth = globalState.state.isAuth;
+    const message = (isAuth) ? "Welcome user" : "You are not loged in";
 
   /*
 

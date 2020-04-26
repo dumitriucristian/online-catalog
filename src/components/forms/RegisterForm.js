@@ -2,10 +2,11 @@ import React, { useState, useContext } from 'react';
 import { store} from "../../store";
 import { useHistory } from "react-router-dom";
 
-function LoginForm() {
+function RegisterForm() {
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [passwordValidation, setPasswordValidation] = useState('');
     const [error, setError] = useState('');
     const history = useHistory();
     const globalState = useContext(store);
@@ -15,21 +16,29 @@ function LoginForm() {
         evt.preventDefault();
 
         if (!username) {
-            return setUsername({error: 'Username is required'});
+            return setError('Username is required');
         }
 
         if (!password) {
-            return setPassword({ error: 'Password is required' });
+            return setError('Password is required');
+        }
+
+        if (!passwordValidation) {
+            return setError('Password validation is required');
+        }
+
+        if (password != passwordValidation) {
+            return setError( 'Password must match');
         }
 
         //prevent user login multiple times
         if(globalState.state.isAuth === true) {
-           return
+            return
         }
 
 
         const data = {'username': username, 'password': password};
-        fetch('http://localhost:8080/api/login_check', {
+        fetch('http://localhost:8080/api/register_user', {
             method: 'POST',
             mode: 'cors',
             credentials: 'omit',
@@ -61,6 +70,10 @@ function LoginForm() {
     const handlePassChange = evt => {
         setPassword( evt.target.value);
     };
+
+    const handleValidationPassChange = evt =>{
+        setPasswordValidation(evt.target.value);
+    }
 
     //conditional rendering - if loged in hide form
     if(globalState.state.login){
@@ -96,7 +109,18 @@ function LoginForm() {
                         id="password" type="password" placeholder="******************"
                         value={password} onChange={handlePassChange}
                     />
-                        <p className="text-red-500 text-xs italic">Please choose a password.</p>
+                    <p className="text-red-500 text-xs italic">Please choose a password.</p>
+                </div>
+                <div className="mb-6">
+                    <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="passwordValidation">
+                        Password check
+                    </label>
+                    <input
+                        className="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                        id="password" type="password" placeholder="retype password"
+                        value={passwordValidation} onChange={handleValidationPassChange}
+                    />
+                    <p className="text-red-500 text-xs italic">Please re-type your password.</p>
                 </div>
                 <div className="flex items-center justify-center">
                     <input
@@ -104,15 +128,9 @@ function LoginForm() {
                         type="submit" value="submit"
                     />
                 </div>
-                <div className="flex items-end justify-center p-5">
-                    <a className="inline-block   text-sm text-blue-500 hover:text-blue-800"
-                       href="#">
-                        Forgot Password?
-                    </a>
-                </div>
             </form>
         </div>
     )
 }
 
-export default LoginForm;
+export default RegisterForm;

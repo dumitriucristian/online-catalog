@@ -17,7 +17,11 @@ function MainMenu(){
             { login ? (
                 <NavLink to="/logout" className="w-full sm:w-1/4 text-center sm:text-center bg-black text-white p-2" href="#">Logout</NavLink>
                 ):(
-                <NavLink to="/login" className="w-full sm:w-1/4 text-center sm:text-center bg-white rounded text-center p-2" href="#">Login</NavLink>
+                <div>
+                    <NavLink to="/login" className="w-full sm:w-1/4 text-center sm:text-center bg-white rounded text-center p-2" href="#">Login</NavLink>
+                    <span className="p-2">or</span>
+                    <NavLink to="/register" className="w-full sm:w-1/4 text-center sm:text-center bg-blue-300 rounded text-center text-white p-2" href="#">Register</NavLink>
+                </div>
                 )
             }
         </div>
