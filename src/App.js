@@ -6,7 +6,7 @@ import Students from './components/school/Students.js';
 import Home from './components/school/Home.js';
 import Cards from './components/Cards.js';
 import Login from "./components/Login";
-import Register from "./components/Register";
+import Register from "./components/Register.js";
 import MainMenu from "./components/MainMenu.js";
 
 

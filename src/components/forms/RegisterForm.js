@@ -38,7 +38,7 @@ function RegisterForm() {
 
 
         const data = {'username': username, 'password': password};
-        fetch('http://localhost:8080/api/register_user', {
+        fetch('http://localhost:8080/register', {
             method: 'POST',
             mode: 'cors',
             credentials: 'omit',
@@ -73,7 +73,7 @@ function RegisterForm() {
 
     const handleValidationPassChange = evt =>{
         setPasswordValidation(evt.target.value);
-    }
+    };
 
     //conditional rendering - if loged in hide form
     if(globalState.state.login){
