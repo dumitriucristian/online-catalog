@@ -14,6 +14,7 @@ function MainMenu(){
             <NavLink to="/classes"   className="w-full sm:w-1/4 text-center sm:text-right p-2" href="#" >Classes </NavLink>
             <NavLink to="/students" className="w-full sm:w-1/4 text-center sm:text-right p-2" href="#">Students</NavLink>
             <NavLink to="/statistics" className="w-full sm:w-1/4 text-center sm:text-right p-2" href="#">Statistics</NavLink>
+            <NavLink to="/school" className="w-full sm:w-1/4 text-center sm:text-right p-2" href="#">School</NavLink>
             { login ? (
                 <NavLink to="/logout" className="w-full sm:w-1/4 text-center sm:text-center bg-black text-white p-2" href="#">Logout</NavLink>
                 ):(
