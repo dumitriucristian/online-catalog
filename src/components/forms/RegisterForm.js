@@ -4,6 +4,8 @@ import { useHistory } from "react-router-dom";
 
 function RegisterForm() {
 
+    const [roles] = useState(['VISITOR','STUDENT','TEACHER','ADMIN','SUPER-ADMIN']);
+    const [role, setRole] = useState('VISITOR');
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [passwordValidation, setPasswordValidation] = useState('');
@@ -11,6 +13,7 @@ function RegisterForm() {
     const history = useHistory();
     const globalState = useContext(store);
     const { dispatch } = globalState;
+
 
     const handleSubmit = (evt) => {
         evt.preventDefault();
@@ -37,7 +40,7 @@ function RegisterForm() {
         }
 
 
-        const data = {'username': username, 'password': password};
+        const data = {'username': username, 'password': password, 'role': role };
         fetch('http://localhost:8080/register', {
             method: 'POST',
             mode: 'cors',
@@ -74,6 +77,11 @@ function RegisterForm() {
     const handleValidationPassChange = evt =>{
         setPasswordValidation(evt.target.value);
     };
+
+    const handleRoleChange = evt =>{
+        setRole(evt.target.value);
+    };
+
 
     //conditional rendering - if loged in hide form
     if(globalState.state.login){
@@ -117,11 +125,21 @@ function RegisterForm() {
                     </label>
                     <input
                         className="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-                        id="password" type="password" placeholder="retype password"
+                        id="password-validation" type="password" placeholder="retype password"
                         value={passwordValidation} onChange={handleValidationPassChange}
                     />
                     <p className="text-red-500 text-xs italic">Please re-type your password.</p>
                 </div>
+                <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="user-role">
+                    User role
+                </label>
+                <select id="user-role" value={role} className="w-full py-2 px-3 text-gray-700 mb-3 border border-red-500 rounded" onChange={handleRoleChange}>
+                    {
+                       roles.map( (value, index) => {
+                            return <option value={value} key={index}>{value}</option>
+                       })
+                    }
+                </select>
                 <div className="flex items-center justify-center">
                     <input
                         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
