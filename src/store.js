@@ -1,6 +1,8 @@
 import React, {createContext, useReducer} from 'react';
 
+
 const initialState = {
+    mainRequest:'',
     isAuth:false,
     token:'',
     refreshToken:'',
@@ -18,7 +20,17 @@ const StateProvider = ( { children } ) => {
                 state.isAuth = true;
                 state.token = action.token;
                 state.refreshToken = action.refreshToken;
+                return {...state};
 
+            case 'auth required':
+                state.mainRequest = action.mainRequest;
+                return {...state};
+
+            case 'redirect user' :
+
+                return {...state};
+
+            case 'refresh token':
                 return {...state};
 
             default:

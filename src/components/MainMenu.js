@@ -5,7 +5,7 @@ import {store} from "../store";
 
 function MainMenu(){
     const globalState =  useContext(store);
-    const login = globalState.state.login;
+    const isAuth = globalState.state.isAuth;
 
 
     return (
@@ -15,7 +15,7 @@ function MainMenu(){
             <NavLink to="/students" className="w-full sm:w-1/4 text-center sm:text-right p-2" href="#">Students</NavLink>
             <NavLink to="/statistics" className="w-full sm:w-1/4 text-center sm:text-right p-2" href="#">Statistics</NavLink>
             <NavLink to="/school" className="w-full sm:w-1/4 text-center sm:text-right p-2" href="#">School</NavLink>
-            { login ? (
+            { isAuth ? (
                 <NavLink to="/logout" className="w-full sm:w-1/4 text-center sm:text-center bg-black text-white p-2" href="#">Logout</NavLink>
                 ):(
                 <div>

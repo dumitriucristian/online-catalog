@@ -9,7 +9,7 @@ import Login from "./components/Login";
 import RegisterForm from "./components/forms/RegisterForm";
 import MainMenu from "./components/MainMenu.js";
 import School from "./components/School.js";
-
+import Auth from "./components/Auth.js";
 
 function App() {
 
@@ -17,11 +17,10 @@ function App() {
     <div>
        <BrowserRouter>
           <header className="grid grid-cols-1 sm:grid-cols-2">    
-            <div className="flex align-middle"><img src={logo} className="h-12 p-1"></img>Bucharest Hi School
+            <div className="flex align-middle"><img src={logo} className="h-12 p-1"></img>
             </div>
               <MainMenu />
           </header>
-
 
           <div className="flex w-full flex-wrap justify-center my-10">
             <Route exact path="/" component={Home} />
@@ -30,6 +29,7 @@ function App() {
               <Route path="/login" component={Login} />
               <Route path="/register" component={RegisterForm} />
               <Route path="/school" component={School} />
+              <Route path="/auth" component={Auth} />
           </div>
         </BrowserRouter>
     </div>

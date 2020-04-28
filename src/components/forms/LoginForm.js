@@ -10,23 +10,22 @@ function LoginForm() {
     const history = useHistory();
     const globalState = useContext(store);
     const { dispatch } = globalState;
-
+    console.log("loginForm: ");console.log(globalState.state);
     const handleSubmit = (evt) => {
         evt.preventDefault();
 
         if (!username) {
-            return setUsername({error: 'Username is required'});
+            setUsername({error: 'Username is required'});
         }
 
         if (!password) {
-            return setPassword({ error: 'Password is required' });
+            setPassword({ error: 'Password is required' });
         }
 
         //prevent user login multiple times
         if(globalState.state.isAuth === true) {
            return
         }
-
 
         const data = {'username': username, 'password': password};
         fetch('http://localhost:8080/api/login_check', {
@@ -46,7 +45,14 @@ function LoginForm() {
         }).then(rsp => {
             console.log(rsp);
             dispatch({type: 'login user', token: rsp.token, refreshToken: rsp.refresh_token});
-            history.push("/");
+
+            if(globalState.state.mainRequest)
+            {
+                history.push(globalState.state.mainRequest)
+            }else{
+                history.push("/");
+            }
+
         }).catch(error => {
             alert('Wrong username or password');
             console.log(error)
